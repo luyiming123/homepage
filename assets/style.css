@@ -1,0 +1,331 @@
+/* ===================================================================
+   个人主页样式表
+   - 单文件、无依赖；改颜色只需改下面的 CSS 变量
+   - 深色模式：跟随系统，也可用右上角按钮手动切换
+   =================================================================== */
+
+/* ---------- 配色变量（浅色） ---------- */
+:root {
+  --bg: #ffffff;
+  --bg-soft: #f7f7f8;
+  --text: #1c1c1e;
+  --text-soft: #5c5c63;
+  --text-faint: #8a8a92;
+  --border: #e4e4e7;
+  --accent: #1f5fa9;
+  --accent-soft: rgba(31, 95, 169, 0.09);
+  --radius: 10px;
+  --wrap: 760px;
+  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC",
+    "Hiragino Sans GB", "Microsoft YaHei", "Source Han Sans SC", sans-serif;
+  --font-serif: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia,
+    "Songti SC", "SimSun", serif;
+}
+
+/* ---------- 深色模式 ---------- */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #16181c;
+    --bg-soft: #1e2126;
+    --text: #e8e8ea;
+    --text-soft: #b0b2b8;
+    --text-faint: #85878e;
+    --border: #2c3037;
+    --accent: #7cb2f0;
+    --accent-soft: rgba(124, 178, 240, 0.12);
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #16181c;
+  --bg-soft: #1e2126;
+  --text: #e8e8ea;
+  --text-soft: #b0b2b8;
+  --text-faint: #85878e;
+  --border: #2c3037;
+  --accent: #7cb2f0;
+  --accent-soft: rgba(124, 178, 240, 0.12);
+}
+
+/* ---------- 基础 ---------- */
+* { box-sizing: border-box; }
+
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;   /* 兜底：任何元素都不该让整页横向滚动 */
+}
+
+body {
+  margin: 0;
+  overflow-x: hidden;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-sans);
+  font-size: 16.5px;
+  line-height: 1.75;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+.wrap {
+  max-width: var(--wrap);
+  margin: 0 auto;
+  padding: 0 22px;
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.15s ease, color 0.15s ease;
+}
+a:hover { border-bottom-color: currentColor; }
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+  border-radius: 3px;
+}
+
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  background: var(--accent);
+  color: #fff;
+  padding: 8px 14px;
+  border-radius: 0 0 var(--radius) 0;
+}
+.skip-link:focus { left: 0; z-index: 10; }
+
+/* ---------- 顶栏 ---------- */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  background: color-mix(in srgb, var(--bg) 88%, transparent);
+  backdrop-filter: saturate(180%) blur(10px);
+  border-bottom: 1px solid var(--border);
+}
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  min-height: 58px;
+  flex-wrap: wrap;
+}
+.site-name {
+  font-family: var(--font-serif);
+  font-weight: 600;
+  font-size: 1.06rem;
+  color: var(--text);
+  letter-spacing: 0.01em;
+}
+.site-nav {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  flex-wrap: wrap;
+  font-size: 0.92rem;
+}
+.site-nav a {
+  color: var(--text-soft);
+  padding: 5px 9px;
+  border-radius: 6px;
+}
+.site-nav a:hover {
+  color: var(--accent);
+  background: var(--accent-soft);
+  border-bottom-color: transparent;
+}
+
+.theme-toggle {
+  margin-left: 4px;
+  width: 32px;
+  height: 32px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.95rem;
+  color: var(--text-soft);
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  cursor: pointer;
+  line-height: 1;
+  padding: 0;
+}
+.theme-toggle:hover { color: var(--accent); border-color: var(--accent); }
+.theme-toggle .icon-moon { display: none; }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .theme-toggle .icon-sun { display: none; }
+  :root:not([data-theme="light"]) .theme-toggle .icon-moon { display: inline; }
+}
+:root[data-theme="dark"] .theme-toggle .icon-sun { display: none; }
+:root[data-theme="dark"] .theme-toggle .icon-moon { display: inline; }
+
+/* ---------- 顶部区 ---------- */
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 26px;
+  padding: 52px 0 8px;
+}
+.hero h1 {
+  font-family: var(--font-serif);
+  font-size: 2.15rem;
+  line-height: 1.2;
+  margin: 0 0 8px;
+  letter-spacing: -0.01em;
+}
+.name-cn {
+  font-size: 0.62em;
+  color: var(--text-faint);
+  font-weight: 400;
+  margin-left: 6px;
+  letter-spacing: 0.02em;
+}
+.tagline {
+  margin: 0 0 12px;
+  color: var(--text-soft);
+  font-size: 1.02rem;
+}
+.hero-links { margin: 0; font-size: 0.95rem; }
+.hero-links .dot { color: var(--text-faint); margin: 0 6px; }
+
+.avatar {
+  width: 132px;
+  height: 132px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1px solid var(--border);
+  flex: 0 0 auto;
+}
+
+/* ---------- 章节 ---------- */
+section { padding: 30px 0 6px; }
+
+h2 {
+  font-family: var(--font-serif);
+  font-size: 1.32rem;
+  margin: 0 0 14px;
+  padding-bottom: 7px;
+  border-bottom: 1px solid var(--border);
+  letter-spacing: 0.005em;
+}
+h3 { font-size: 1.02rem; margin: 0 0 8px; }
+
+p { margin: 0 0 14px; }
+
+.muted { color: var(--text-faint); font-size: 0.92rem; }
+
+/* ---------- 研究兴趣 ---------- */
+.interest-list { list-style: none; margin: 0; padding: 0; }
+.interest-list li {
+  display: grid;
+  grid-template-columns: 170px 1fr;
+  gap: 6px 16px;
+  padding: 11px 0;
+  border-bottom: 1px dashed var(--border);
+}
+.interest-list li:last-child { border-bottom: none; }
+.interest-title { font-weight: 600; }
+.interest-desc { color: var(--text-soft); }
+
+/* ---------- 论文列表 ---------- */
+.pub-list { margin: 0; padding-left: 1.35em; }
+.pub-list li { padding: 11px 0; border-bottom: 1px dashed var(--border); }
+.pub-list li:last-child { border-bottom: none; }
+.pub-title { display: block; font-weight: 600; }
+.pub-meta { display: block; color: var(--text-soft); font-size: 0.92rem; }
+.pub-links { display: block; font-size: 0.92rem; margin-top: 3px; }
+
+/* ---------- 项目卡片 ---------- */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 14px;
+}
+.card {
+  background: var(--bg-soft);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 16px 17px;
+}
+.card h3 { margin-bottom: 7px; }
+.card p { margin: 0 0 9px; color: var(--text-soft); font-size: 0.94rem; }
+.card-tags {
+  font-size: 0.82rem;
+  color: var(--text-faint);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  letter-spacing: 0.01em;
+}
+
+/* ---------- 表格 ---------- */
+.table-scroll {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+.plain-table {
+  width: 100%;
+  min-width: 420px;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+}
+.plain-table th,
+.plain-table td {
+  text-align: left;
+  padding: 9px 12px 9px 0;
+  border-bottom: 1px solid var(--border);
+  vertical-align: top;
+}
+.plain-table th {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-faint);
+  font-weight: 600;
+}
+.plain-table tbody tr:last-child td { border-bottom: none; }
+
+/* ---------- 联系 ---------- */
+.contact-list { list-style: none; margin: 0 0 12px; padding: 0; }
+.contact-list li { padding: 6px 0; }
+.contact-list .label {
+  display: inline-block;
+  min-width: 74px;
+  color: var(--text-faint);
+  font-size: 0.9rem;
+}
+
+/* ---------- 页脚 ---------- */
+.site-footer {
+  margin-top: 44px;
+  padding: 22px 0 34px;
+  border-top: 1px solid var(--border);
+  color: var(--text-soft);
+  font-size: 0.9rem;
+}
+.site-footer p { margin: 0 0 5px; }
+
+/* ---------- 窄屏 ---------- */
+@media (max-width: 620px) {
+  body { font-size: 16px; }
+  .hero { flex-direction: column-reverse; align-items: flex-start; padding-top: 34px; }
+  .hero h1 { font-size: 1.8rem; }
+  .avatar { width: 96px; height: 96px; }
+  .interest-list li { grid-template-columns: 1fr; gap: 2px; }
+  .header-inner { min-height: 54px; }
+  .site-nav { font-size: 0.88rem; }
+  .site-nav a { padding: 4px 7px; }
+}
+
+/* ---------- 打印（学术主页常被打印成 PDF） ---------- */
+@media print {
+  .site-header, .theme-toggle, .skip-link { display: none; }
+  body { font-size: 11pt; color: #000; background: #fff; }
+  a { color: #000; border-bottom: none; }
+  .card { border: 1px solid #ccc; background: transparent; }
+  section { padding: 12px 0 0; break-inside: avoid; }
+}

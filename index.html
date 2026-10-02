@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- ===================================================================
+     个人主页 —— 只有一个文件需要改：就是本文件（index.html）
+     所有占位内容都用「示例」标注，直接替换成你自己的即可。
+     =================================================================== -->
+
+<title>Yiming Lu · 个人主页</title>
+<meta name="description" content="Yiming Lu 的个人主页：计算机科学理论方向的学习与研究记录，关注算法、计算复杂性与形式化方法。">
+<meta name="author" content="Yiming Lu">
+
+<!-- 社交平台分享时显示的卡片 -->
+<meta property="og:type" content="profile">
+<meta property="og:title" content="Yiming Lu · 个人主页">
+<meta property="og:description" content="计算机科学理论方向的学习与研究记录。">
+<meta property="og:url" content="https://luyiming123.github.io/homepage/">
+
+<!-- 站点地址：上线后改成你的真实地址（供搜索引擎与分享卡片使用） -->
+<link rel="canonical" href="https://luyiming123.github.io/homepage/">
+
+<!-- 样式表用相对路径，因此放在仓库子目录、换域名都能正常工作 -->
+<link rel="stylesheet" href="assets/style.css">
+<!-- 站点图标 -->
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="assets/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<meta name="theme-color" content="#1f5fa9" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#16181c" media="(prefers-color-scheme: dark)">
+</head>
+
+<body>
+<a class="skip-link" href="#main">跳到正文</a>
+
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="site-name" href="./">Yiming Lu</a>
+    <nav class="site-nav" aria-label="页面导航">
+      <a href="#about">简介</a>
+      <a href="#research">研究兴趣</a>
+      <a href="#publications">论文</a>
+      <a href="#projects">项目</a>
+      <a href="#notes">笔记</a>
+      <a href="#contact">联系</a>
+      <button id="theme-toggle" class="theme-toggle" type="button" aria-label="切换深色/浅色主题" title="切换主题">
+        <span class="icon-sun" aria-hidden="true">☀</span>
+        <span class="icon-moon" aria-hidden="true">☾</span>
+      </button>
+    </nav>
+  </div>
+</header>
+
+<main id="main" class="wrap">
+
+  <!-- ============ 顶部：姓名 / 身份 / 一句话 ============ -->
+  <section class="hero">
+    <div class="hero-text">
+      <h1>Yiming Lu <span class="name-cn">卢一鸣</span></h1>
+      <p class="tagline">计算机科学专业在读 · 兴趣在理论计算机科学</p>
+      <p class="hero-links">
+        <a href="mailto:your-email@example.com">Email</a>
+        <span class="dot">·</span>
+        <a href="https://github.com/luyiming123" target="_blank" rel="me noopener">GitHub</a>
+        <span class="dot">·</span>
+        <a href="https://luyiming123.github.io/" target="_blank" rel="noopener">博客</a>
+        <span class="dot">·</span>
+        <a href="assets/cv-placeholder.txt">CV</a>
+      </p>
+    </div>
+
+    <!-- 头像：把一张方形照片放到 assets/avatar.jpg 后，删掉下面这段注释即可
+    <img class="avatar" src="assets/avatar.jpg" alt="Yiming Lu 的照片" width="132" height="132">
+    -->
+  </section>
+
+  <!-- ============ 简介 ============ -->
+  <section id="about">
+    <h2>简介</h2>
+    <p>
+      我是 <strong>Yiming Lu</strong>，一名计算机专业学生。目前的学习重心在
+      <strong>理论计算机科学</strong>：算法与数据结构、计算复杂性、逻辑与形式化方法。
+      我对「计算的边界在哪里」这类问题格外着迷 —— 哪些问题根本算不出来，
+      哪些算得出来但要花多久，以及我们如何用机器验证一个证明。
+    </p>
+    <p>
+      除课程之外，我在做两件事：一是把读过的定理和证明整理成可复查的笔记
+      （见 <a href="#notes">笔记</a>），二是用 Lean 4 形式化一些本科水平的定理，
+      边做边记录踩过的坑。日常的零散思考和复盘写在
+      <a href="https://luyiming123.github.io/" target="_blank" rel="noopener">我的博客</a>里。
+    </p>
+    <p class="muted">
+      <em>示例文字，请替换成你自己的介绍。诚恳、具体、有细节的简介，比堆砌头衔更打动人。</em>
+    </p>
+  </section>
+
+  <!-- ============ 研究兴趣 ============ -->
+  <section id="research">
+    <h2>研究兴趣</h2>
+    <ul class="interest-list">
+      <li>
+        <span class="interest-title">计算复杂性</span>
+        <span class="interest-desc">P 与 NP、归约与完全性、电路下界、近似困难性。</span>
+      </li>
+      <li>
+        <span class="interest-title">算法设计与分析</span>
+        <span class="interest-desc">近似算法、随机化算法、在线算法与其竞争比分析。</span>
+      </li>
+      <li>
+        <span class="interest-title">逻辑与形式化方法</span>
+        <span class="interest-desc">Curry–Howard 同构、依赖类型、Coq / Lean 4 证明助手。</span>
+      </li>
+      <li>
+        <span class="interest-title">概率方法</span>
+        <span class="interest-desc">集中不等式、鞅与停时、随机图上的组合结构。</span>
+      </li>
+    </ul>
+  </section>
+
+  <!-- ============ 论文 / 写作 ============ -->
+  <section id="publications">
+    <h2>论文与写作</h2>
+
+    <!-- 有真实论文后，照下面格式加条目；现在的两条是示例，请删除或替换 -->
+    <ol class="pub-list">
+      <li>
+        <span class="pub-title">Martingales, Stopping Times, and Convergence Theorems</span>
+        <span class="pub-meta">读书笔记 · 2026</span>
+        <span class="pub-links">
+          <a href="https://luyiming123.github.io/posts/martingales-stopping-times-convergence/">HTML</a>
+        </span>
+      </li>
+      <li>
+        <span class="pub-title">一行式示例：论文标题写在这里（作者、会议、年份）</span>
+        <span class="pub-meta">示例条目 · 年份</span>
+        <span class="pub-links">
+          <a href="#">PDF</a> · <a href="#">arXiv</a> · <a href="#">代码</a>
+        </span>
+      </li>
+    </ol>
+
+    <p class="muted">
+      <em>没有正式发表也可以保留这一节，改名为「写作」并列出你的长文、讲义或技术报告。</em>
+    </p>
+  </section>
+
+  <!-- ============ 项目 ============ -->
+  <section id="projects">
+    <h2>项目</h2>
+    <div class="card-grid">
+      <article class="card">
+        <h3><a href="https://luyiming123.github.io/" target="_blank" rel="noopener">个人博客</a></h3>
+        <p>Hugo + PaperMod 搭建的静态博客，支持 LaTeX 公式（KaTeX 构建时渲染），GitHub Actions 自动部署。</p>
+        <p class="card-tags">Hugo · KaTeX · GitHub Actions</p>
+      </article>
+      <article class="card">
+        <h3><a href="#">Lean 4 形式化练习</a></h3>
+        <p>把本科水平的定理用 Lean 4 形式化，记录每一步卡住的原因与解决方式。</p>
+        <p class="card-tags">Lean 4 · 类型论</p>
+      </article>
+      <article class="card">
+        <h3><a href="#">算法笔记仓库</a></h3>
+        <p>按技术而非题目分类整理的算法笔记：归约、近似、随机化、流式算法。</p>
+        <p class="card-tags">算法 · 笔记</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- ============ 笔记 / 课程 ============ -->
+  <section id="notes">
+    <h2>笔记与课程</h2>
+    <!-- 表格外层包一层 .table-scroll：窄屏时表格自己横向滚动，不撑破页面 -->
+    <div class="table-scroll">
+      <table class="plain-table">
+        <thead>
+          <tr><th>主题</th><th>内容</th><th>更新</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>鞅论与随机过程</td>
+            <td>滤子、条件期望、停时定理、收敛定理</td>
+            <td><a href="https://luyiming123.github.io/posts/martingales-stopping-times-convergence/">阅读</a></td>
+          </tr>
+          <tr>
+            <td>计算复杂性导论</td>
+            <td>图灵机、可计算性、NP 完全性、归约练习</td>
+            <td>整理中</td>
+          </tr>
+          <tr>
+            <td>概率方法</td>
+            <td>集中不等式、Lovász 局部引理、随机图</td>
+            <td>整理中</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ============ 联系 ============ -->
+  <section id="contact">
+    <h2>联系</h2>
+    <ul class="contact-list">
+      <li><span class="label">邮箱</span> <a href="mailto:your-email@example.com">your-email@example.com</a></li>
+      <li><span class="label">GitHub</span> <a href="https://github.com/luyiming123" target="_blank" rel="me noopener">@luyiming123</a></li>
+      <li><span class="label">博客</span> <a href="https://luyiming123.github.io/" target="_blank" rel="noopener">luyiming123.github.io</a></li>
+    </ul>
+    <p class="muted">
+      欢迎讨论算法、复杂性、形式化验证，或者任何你觉得有意思的数学问题。
+      发现笔记里有错误，来 <a href="https://github.com/luyiming123/luyiming123.github.io/issues" target="_blank" rel="noopener">开个 issue</a> 指正。
+    </p>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <p>
+      © <span id="year">2026</span> Yiming Lu ·
+      <a href="https://github.com/luyiming123/homepage">本站源码</a> ·
+      内容采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="noopener">CC BY-NC-SA 4.0</a>
+    </p>
+    <p class="muted">由纯 HTML/CSS 构建，托管于 GitHub Pages。</p>
+  </div>
+</footer>
+
+<script>
+  // 年份
+  document.getElementById("year").textContent = new Date().getFullYear();
+
+  // 主题切换：记住选择，默认跟随系统
+  (function () {
+    var root = document.documentElement;
+    var saved = null;
+    try { saved = localStorage.getItem("theme"); } catch (e) {}
+    if (saved) root.setAttribute("data-theme", saved);
+
+    document.getElementById("theme-toggle").addEventListener("click", function () {
+      var current = root.getAttribute("data-theme");
+      if (!current) {
+        current = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+      }
+      var next = current === "dark" ? "light" : "dark";
+      root.setAttribute("data-theme", next);
+      try { localStorage.setItem("theme", next); } catch (e) {}
+    });
+  })();
+</script>
+</body>
+</html>
