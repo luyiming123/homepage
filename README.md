@@ -77,9 +77,11 @@ homepage/
 ├─ assets/
 │  ├─ style.css                # 样式（★ 颜色在这里）
 │  ├─ favicon.svg              # 站点图标
-│  ├─ favicon-32x32.png
-│  ├─ apple-touch-icon.png
+│  ├─ favicon.ico / -32x32.png / apple-touch-icon.png
 │  └─ cv-placeholder.txt       # 放上真实 CV 后删掉
+├─ scripts/
+│  ├─ make-icons.py            # 重新生成图标（改了姓名缩写或配色后才需要跑）
+│  └─ check-workflow.py        # 校验 .github/workflows/pages.yml 结构（可选）
 ├─ .github/workflows/pages.yml # 自动部署
 └─ README.md
 ```
