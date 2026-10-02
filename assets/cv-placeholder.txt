@@ -1,4 +1,1 @@
-把这个文件替换成你的简历：
-1. 把简历导出为 PDF，命名为 cv.pdf，放到 assets/ 目录下
-2. 删除本文件（cv-placeholder.txt）
-3. 如果 index.html 里的链接写的是 assets/cv-placeholder.txt，改成 assets/cv.pdf
+暂无。
